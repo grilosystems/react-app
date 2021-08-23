@@ -20,7 +20,7 @@ jobs:
         if: github.event_name == 'push'
         run: npm run build
       - name: Deploy to Server STAGING
-        if: github_event_name == 'push'
+        if: github.event_name == 'push'
         run: npx surge --project ./build --domain marcocicd123.surge.sh
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
